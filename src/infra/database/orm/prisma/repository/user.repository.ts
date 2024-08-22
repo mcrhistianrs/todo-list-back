@@ -1,5 +1,5 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { UserDomainEntity } from 'src/modules/user/domain/entities/user.domain.entity';
+import { UserDomainEntity } from '../../../../../modules/user/domain/entities/user.domain.entity';
 import { UserDao } from '../dao/user.dao';
 @Injectable()
 class UserRepository {
