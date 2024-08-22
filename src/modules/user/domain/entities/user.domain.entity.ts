@@ -30,5 +30,14 @@ class UserDomainEntity {
   getEmail(): string {
     return this.field.email;
   }
+  getId(): string {
+    return this.field.id;
+  }
+  getPassword(): string {
+    return this.field.password;
+  }
+  getCreatedAt(): Date {
+    return this.field.created_at;
+  }
 }
 export { UserDomainEntity };
