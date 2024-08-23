@@ -7,6 +7,11 @@ class UserRepository {
   async retrieveByEmail(input: string): Promise<UserDomainEntity> {
     try {
       const databaseEntity = await this.userDao.findByEmail(input);
+      if (!databaseEntity) {
+        throw new BadRequestException(
+          'It was not possible to retrieve an user',
+        );
+      }
       return UserDomainEntity.load({
         id: databaseEntity.id,
         name: databaseEntity.name,

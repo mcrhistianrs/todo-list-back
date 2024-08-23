@@ -1,12 +1,34 @@
 services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db-local
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD', 'pg_isready', '-U', 'postgres']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   app:
     build: .
     ports:
       - '3000:3000'
     environment:
       - NODE_ENV=development
-      - DATABASE_URL=file:../../../../dev.db
+      - DATABASE_URL=postgres://postgres:password@db:5432/db-local
+    depends_on:
+      db:
+        condition: service_healthy
     volumes:
       - .:/app
-      - /app/node_modules # To avoid node_modules overwrite issue
-    command: npm run start:dev # Use nodemon to automatically reload
+      - /app/node_modules
+    command: sh -c "npm run prisma:migrate:dev && npm run prisma:seed && npm run start:dev"
+
+volumes:
+  postgres_data:

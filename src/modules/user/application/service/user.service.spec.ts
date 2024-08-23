@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { UserDao } from '../../../../infra/database/orm/prisma/dao/user.dao';
 import { UserRepository } from '../../../../infra/database/orm/prisma/repository/user.repository';
+import { PrismaService } from '../../../../infra/database/orm/prisma/service/prisma.service';
 import { UserDomainEntity } from '../../domain/entities/user.domain.entity';
 import { RetrieveUserByEmailInputDto } from '../dto/retrieve.user.by.email.input.dto';
 import { UserService } from './user.service';
@@ -9,7 +10,7 @@ describe('Main Flow - User Service', () => {
   let userRepository: UserRepository;
   beforeAll(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [UserService, UserRepository, UserDao],
+      providers: [UserService, UserRepository, UserDao, PrismaService],
     }).compile();
     sut = module.get<UserService>(UserService);
     userRepository = module.get<UserRepository>(UserRepository);
@@ -34,7 +35,7 @@ describe('Alternative Flow - User Service', () => {
   let userRepository: UserRepository;
   beforeAll(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [UserService, UserRepository, UserDao],
+      providers: [UserService, UserRepository, UserDao, PrismaService],
     }).compile();
     sut = module.get<UserService>(UserService);
     userRepository = module.get<UserRepository>(UserRepository);
