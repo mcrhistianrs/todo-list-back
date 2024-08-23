@@ -16,4 +16,24 @@ model User {
   email String @unique
   password String
   createdAt DateTime @default(now())
+  List List[]
+}
+
+model List{
+  id String @id @default(uuid())
+  name String 
+  color String
+  userId String
+  user User @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+  Task Task[]
+}
+
+model Task {
+  id String @id @default(uuid())
+  name String
+  completed Boolean
+  listId String
+  list List @relation(fields: [listId], references: [id])
+  createdAt DateTime @default(now())
 }

@@ -12,7 +12,15 @@ content-type: application/json
 POST http://localhost:3000/auth/login HTTP/1.1
 content-type: application/json
 
+
+###
+#Create a list 
+POST http://localhost:3000/list/create HTTP/1.1
+content-Type: application/json
+
 {
-    "email": "fulano@email.com",
-    "password": "1234567891"
+    "name": "list1",
+    "color": "blue",
+    "user": "e717a789-e158-473d-8b6f-38e3ec6a462b"
 }
+
