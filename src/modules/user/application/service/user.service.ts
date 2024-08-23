@@ -1,11 +1,13 @@
-import { Injectable } from '@nestjs/common';
-import { UserRepository } from '../../../../infra/database/orm/prisma/repository/user.repository';
+import { Inject, Injectable } from '@nestjs/common';
+import { UserRepositoryInterface } from '../../../../infra/database/orm/prisma/repository/user.repository';
 import { UserDomainEntity } from '../../domain/entities/user.domain.entity';
 import { RetrieveUserByEmailInputDto } from '../dto/retrieve.user.by.email.input.dto';
 @Injectable()
 class UserService {
-  constructor(private userRepository: UserRepository) {}
-
+  constructor(
+    @Inject('UserRepositoryInterface')
+    private userRepository: UserRepositoryInterface,
+  ) {}
   async retrieveByEmail(
     input: RetrieveUserByEmailInputDto,
   ): Promise<UserDomainEntity | null> {

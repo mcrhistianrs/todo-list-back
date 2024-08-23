@@ -2,7 +2,10 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreateListInputDto } from '../../../../../modules/list/application/dto/list.input.dto';
 import { ListDomainEntity } from '../../../../../modules/list/domain/entities/list.domain.entity';
 import { ListDao } from '../dao/list.dao';
-
+type ListRepositoryInterface = {
+  create(input: CreateListInputDto): Promise<ListDomainEntity>;
+  findAllByUserId(userId: string): Promise<ListDomainEntity[]>;
+};
 @Injectable()
 class ListRepository {
   constructor(private listDao: ListDao) {}
@@ -40,5 +43,4 @@ class ListRepository {
     }
   }
 }
-
-export { ListRepository };
+export { ListRepository, ListRepositoryInterface };

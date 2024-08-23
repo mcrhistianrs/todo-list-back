@@ -1,6 +1,9 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { UserDomainEntity } from '../../../../../modules/user/domain/entities/user.domain.entity';
 import { UserDao } from '../dao/user.dao';
+type UserRepositoryInterface = {
+  retrieveByEmail(input: string): Promise<UserDomainEntity>;
+};
 @Injectable()
 class UserRepository {
   constructor(private userDao: UserDao) {}
@@ -25,4 +28,4 @@ class UserRepository {
   }
 }
 
-export { UserRepository };
+export { UserRepository, UserRepositoryInterface };

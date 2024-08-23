@@ -6,7 +6,7 @@ export class ListController {
   @HttpCode(HttpStatus.OK)
   @Post('create')
   async create(@Body() input: Record<string, any>) {
-    return this.createListUseCase.execute({
+    return await this.createListUseCase.execute({
       name: input.name,
       color: input.color,
       user: input.user,

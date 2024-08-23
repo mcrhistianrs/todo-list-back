@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { List } from '@prisma/client';
 import { CreateListInputDto } from '../../../../../modules/list/application/dto/list.input.dto';
 import { PrismaService } from '../service/prisma.service';
-
 interface IListDao {
   create(input: CreateListInputDto): Promise<List>;
   findAllByUserId(userId: string): Promise<List[]>;
@@ -10,7 +9,6 @@ interface IListDao {
   update(id: string, data: Partial<List>): Promise<List>;
   delete(id: string): Promise<void>;
 }
-
 @Injectable()
 class ListDao implements IListDao {
   constructor(private prismaService: PrismaService) {}
@@ -53,5 +51,4 @@ class ListDao implements IListDao {
     });
   }
 }
-
 export { ListDao };

@@ -7,7 +7,15 @@ import { CreateListUseCase } from './application/usecase/create.list.usecase';
 
 @Module({
   controllers: [ListController],
-  providers: [CreateListUseCase, ListRepository, ListDao, PrismaService],
+  providers: [
+    CreateListUseCase,
+    {
+      provide: 'ListRepositoryInterface',
+      useClass: ListRepository,
+    },
+    ListDao,
+    PrismaService,
+  ],
   exports: [],
 })
 export class ListModule {}
