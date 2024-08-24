@@ -19,7 +19,6 @@ class ListRepository implements ListRepositoryInterface {
       await this.listDao.delete(id);
       return true;
     } catch (error) {
-      console.log(error);
       return false;
     }
   }
