@@ -39,7 +39,7 @@ class ListDao implements IListDao {
   }
 
   async update(id: string, data: Partial<List>): Promise<List> {
-    return this.prismaService.list.update({
+    return await this.prismaService.list.update({
       where: { id },
       data,
     });

@@ -8,4 +8,9 @@ class CreateListInputDto {
 class ListAllListsInputDto {
   id: string;
 }
-export { CreateListInputDto, ListAllListsInputDto };
+class UpdateListInputDto {
+  id: string;
+  name: string;
+  color: string;
+}
+export { CreateListInputDto, ListAllListsInputDto, UpdateListInputDto };
