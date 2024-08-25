@@ -60,3 +60,15 @@ content-Type: application/json
 #Listing a list 
 GET http://localhost:3000/task/all/016d5085-c53d-412f-8390-1e0ade31d84f HTTP/1.1
 content-Type: application/json
+
+
+###
+#Update a task 
+PATCH http://localhost:3000/task HTTP/1.1
+content-Type: application/json
+
+{
+    "id":   "a3f2d313-2712-45e8-ab27-ded44e6eb6e5",
+    "name": "task3",
+    "completed": true
+}

@@ -6,12 +6,13 @@ import { TaskRepository } from '../../infra/database/orm/prisma/repository/task.
 import { PrismaService } from '../../infra/database/orm/prisma/service/prisma.service';
 import { ListController } from './application/controller/list.controller';
 import { TaskController } from './application/controller/task.controller';
+import { ListingTaskService } from './application/service/listing.task.service';
 import { CreateListUseCase } from './application/usecase/list/create.list.usecase';
 import { DeleteListUseCase } from './application/usecase/list/delete.list.usecase';
 import { ListAllListUseCase } from './application/usecase/list/list.all.usecase';
 import { UpdateListUseCase } from './application/usecase/list/update.list.usecase';
 import { TaskCreateUseCase } from './application/usecase/task/create.task.usecase';
-import { ListingTaskService } from './application/usecase/task/listing.task.service';
+import { UpdateTaskUseCase } from './application/usecase/task/update.task.usecase';
 
 @Module({
   controllers: [ListController, TaskController],
@@ -21,6 +22,7 @@ import { ListingTaskService } from './application/usecase/task/listing.task.serv
     UpdateListUseCase,
     DeleteListUseCase,
     TaskCreateUseCase,
+    UpdateTaskUseCase,
     ListingTaskService,
     {
       provide: 'ListRepositoryInterface',
