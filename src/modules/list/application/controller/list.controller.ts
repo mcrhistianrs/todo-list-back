@@ -13,10 +13,10 @@ import {
   ListAllListsInputDto,
   UpdateListInputDto,
 } from '../dto/list.input.dto';
-import { CreateListUseCase } from '../usecase/create.list.usecase';
-import { DeleteListUseCase } from '../usecase/delete.list.usecase';
-import { ListAllListUseCase } from '../usecase/list.all.usecase';
-import { UpdateListUseCase } from '../usecase/update.list.usecase';
+import { CreateListUseCase } from '../usecase/list/create.list.usecase';
+import { DeleteListUseCase } from '../usecase/list/delete.list.usecase';
+import { ListAllListUseCase } from '../usecase/list/list.all.usecase';
+import { UpdateListUseCase } from '../usecase/list/update.list.usecase';
 @Controller('list')
 export class ListController {
   constructor(

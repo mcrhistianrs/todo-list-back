@@ -5,10 +5,10 @@ import {
 } from '@testcontainers/postgresql';
 import { execSync } from 'child_process';
 import { Client } from 'pg';
-import { ListDao } from '../../../../infra/database/orm/prisma/dao/list.dao';
-import { ListRepository } from '../../../../infra/database/orm/prisma/repository/list.repository';
-import { PrismaService } from '../../../../infra/database/orm/prisma/service/prisma.service';
-import { CreateListInputDto } from '../dto/list.input.dto';
+import { ListDao } from '../../../../../infra/database/orm/prisma/dao/list.dao';
+import { ListRepository } from '../../../../../infra/database/orm/prisma/repository/list.repository';
+import { PrismaService } from '../../../../../infra/database/orm/prisma/service/prisma.service';
+import { CreateListInputDto } from '../../dto/list.input.dto';
 import { CreateListUseCase } from './create.list.usecase';
 jest.setTimeout(60000);
 describe('Main Flow - Create List Use Case', () => {

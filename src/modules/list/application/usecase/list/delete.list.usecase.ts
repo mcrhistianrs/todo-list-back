@@ -1,5 +1,5 @@
 import { Inject } from '@nestjs/common';
-import { ListRepositoryInterface } from '../../../../infra/database/orm/prisma/repository/list.repository';
+import { ListRepositoryInterface } from '../../../../../infra/database/orm/prisma/repository/list.repository';
 
 class DeleteListUseCase {
   constructor(

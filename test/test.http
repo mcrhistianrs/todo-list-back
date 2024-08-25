@@ -21,7 +21,7 @@ content-Type: application/json
 {
     "name": "list1",
     "color": "blue",
-    "user": "5a2edb8d-87ef-4fb7-9a0e-b485de2a1564"
+    "user": "8373dc6a-ccec-4fc5-bc10-ddea2265d5fa"
 }
 
 ###
@@ -44,3 +44,14 @@ content-Type: application/json
 ###
 #Delete a list 
 DELETE  http://localhost:3000/list/5e2a186e-4bf8-40e0-85ad-580e4a83b4aa HTTP/1.1
+
+
+###
+#Create a task 
+POST http://localhost:3000/task/create HTTP/1.1
+content-Type: application/json
+
+{
+    "name": "task1",
+    "listId": "016d5085-c53d-412f-8390-1e0ade31d84f"
+}

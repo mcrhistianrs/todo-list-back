@@ -1,7 +1,7 @@
 import { Inject } from '@nestjs/common';
-import { ListRepositoryInterface } from '../../../../infra/database/orm/prisma/repository/list.repository';
-import { ListDomainEntity } from '../../domain/entities/list.domain.entity';
-import { UpdateListInputDto } from '../dto/list.input.dto';
+import { ListRepositoryInterface } from '../../../../../infra/database/orm/prisma/repository/list.repository';
+import { ListDomainEntity } from '../../../domain/entities/list.domain.entity';
+import { UpdateListInputDto } from '../../dto/list.input.dto';
 
 class UpdateListUseCase {
   constructor(

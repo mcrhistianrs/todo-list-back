@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { ListRepositoryInterface } from '../../../../infra/database/orm/prisma/repository/list.repository';
-import { ListAllListsInputDto } from '../dto/list.input.dto';
+import { ListRepositoryInterface } from '../../../../../infra/database/orm/prisma/repository/list.repository';
+import { ListAllListsInputDto } from '../../dto/list.input.dto';
 @Injectable()
 class ListAllListUseCase {
   constructor(
