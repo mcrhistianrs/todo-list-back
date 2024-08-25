@@ -7,55 +7,62 @@ export type TaskDomainEntityInput = {
 };
 
 class TaskDomainEntity {
-  private constructor(private field: TaskDomainEntityInput) {}
+  private constructor(
+    private id: string,
+    private name: string,
+    private completed: boolean,
+    private listId: string,
+    private createdAt: Date,
+  ) {}
 
   static create(
     name: string,
     listId: string,
     completed = false,
   ): TaskDomainEntity {
-    return new TaskDomainEntity({
-      id: crypto.randomUUID().toString(),
+    return new TaskDomainEntity(
+      crypto.randomUUID().toString(),
       name,
       completed,
       listId,
-      createdAt: new Date(),
-    });
+      new Date(),
+    );
   }
 
   static load(input: TaskDomainEntityInput): TaskDomainEntity {
-    return new TaskDomainEntity(input);
+    const { id, name, completed, listId, createdAt } = input;
+    return new TaskDomainEntity(id, name, completed, listId, createdAt);
   }
 
   getId(): string {
-    return this.field.id;
+    return this.id;
   }
 
   getName(): string {
-    return this.field.name;
+    return this.name;
   }
 
   isCompleted(): boolean {
-    return this.field.completed;
+    return this.completed;
   }
 
   getListId(): string {
-    return this.field.listId;
+    return this.listId;
   }
 
   getCreatedAt(): Date {
-    return this.field.createdAt;
+    return this.createdAt;
   }
 
   markAsCompleted(): void {
-    this.field.completed = true;
+    this.completed = true;
   }
 
   markAsIncomplete(): void {
-    this.field.completed = false;
+    this.completed = false;
   }
   getCompleted(): boolean {
-    return this.field.completed;
+    return this.completed;
   }
 }
 
