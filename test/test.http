@@ -72,3 +72,7 @@ content-Type: application/json
     "name": "task3",
     "completed": true
 }
+
+###
+#Delete a list 
+DELETE  http://localhost:3000/task/a3f2d313-2712-45e8-ab27-ded44e6eb6e5 HTTP/1.1

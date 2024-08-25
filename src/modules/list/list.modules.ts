@@ -12,6 +12,7 @@ import { DeleteListUseCase } from './application/usecase/list/delete.list.usecas
 import { ListAllListUseCase } from './application/usecase/list/list.all.usecase';
 import { UpdateListUseCase } from './application/usecase/list/update.list.usecase';
 import { TaskCreateUseCase } from './application/usecase/task/create.task.usecase';
+import { DeleteTaskUseCase } from './application/usecase/task/delete.task.usecase';
 import { UpdateTaskUseCase } from './application/usecase/task/update.task.usecase';
 
 @Module({
@@ -23,6 +24,7 @@ import { UpdateTaskUseCase } from './application/usecase/task/update.task.usecas
     DeleteListUseCase,
     TaskCreateUseCase,
     UpdateTaskUseCase,
+    DeleteTaskUseCase,
     ListingTaskService,
     {
       provide: 'ListRepositoryInterface',

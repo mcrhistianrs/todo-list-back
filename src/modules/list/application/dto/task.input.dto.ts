@@ -11,5 +11,13 @@ class UpdateTaskInputDto {
 class ListingTaskInputDto {
   listId: string;
 }
+class DeleteTaskInputDto {
+  id: string;
+}
 
-export { CreateTaskInputDto, ListingTaskInputDto, UpdateTaskInputDto };
+export {
+  CreateTaskInputDto,
+  DeleteTaskInputDto,
+  ListingTaskInputDto,
+  UpdateTaskInputDto,
+};

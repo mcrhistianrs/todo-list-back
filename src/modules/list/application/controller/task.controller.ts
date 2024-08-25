@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   HttpCode,
   HttpStatus,
@@ -10,11 +11,13 @@ import {
 } from '@nestjs/common';
 import {
   CreateTaskInputDto,
+  DeleteTaskInputDto,
   ListingTaskInputDto,
   UpdateTaskInputDto,
 } from '../dto/task.input.dto';
 import { ListingTaskService } from '../service/listing.task.service';
 import { TaskCreateUseCase } from '../usecase/task/create.task.usecase';
+import { DeleteTaskUseCase } from '../usecase/task/delete.task.usecase';
 import { UpdateTaskUseCase } from '../usecase/task/update.task.usecase';
 @Controller('task')
 export class TaskController {
@@ -22,6 +25,7 @@ export class TaskController {
     private taskCreateUseCase: TaskCreateUseCase,
     private listingTaskService: ListingTaskService,
     private updateTaskUseCase: UpdateTaskUseCase,
+    private deleteTaskUseCase: DeleteTaskUseCase,
   ) {}
   @HttpCode(HttpStatus.OK)
   @Post('create')
@@ -37,5 +41,10 @@ export class TaskController {
   @Patch()
   async update(@Body() input: UpdateTaskInputDto) {
     return await this.updateTaskUseCase.execute(input);
+  }
+  @HttpCode(HttpStatus.OK)
+  @Delete(':id')
+  async delete(@Param() input: DeleteTaskInputDto) {
+    return await this.deleteTaskUseCase.execute(input);
   }
 }
