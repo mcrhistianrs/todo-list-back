@@ -8,4 +8,7 @@ class UpdateTaskInputDto {
   name: string;
   completed: boolean;
 }
-export { CreateTaskInputDto, UpdateTaskInputDto };
+class ListingTaskInputDto {
+  listId: string;
+}
+export { CreateTaskInputDto, ListingTaskInputDto, UpdateTaskInputDto };
