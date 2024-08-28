@@ -16,8 +16,7 @@ class ListRepository implements ListRepositoryInterface {
   constructor(private listDao: ListDao) {}
   async delete(id: string): Promise<boolean> {
     try {
-      await this.listDao.delete(id);
-      return true;
+      return await this.listDao.delete(id);
     } catch (error) {
       return false;
     }

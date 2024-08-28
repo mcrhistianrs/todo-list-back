@@ -21,7 +21,7 @@ content-Type: application/json
 {
     "name": "list1",
     "color": "blue",
-    "user": "8373dc6a-ccec-4fc5-bc10-ddea2265d5fa"
+    "user": "274c576b-8ae1-41bf-b622-a5cd31684377"
 }
 
 ###
@@ -36,14 +36,14 @@ PATCH http://localhost:3000/list HTTP/1.1
 content-Type: application/json
 
 {
-    "id":   "4f434716-c482-49f8-aa36-370008f456fe",
+    "id":   "9f2b03cb-f760-44d6-983d-7fde9100d86b",
     "name": "list3",
     "color": "purple"
 }
 
 ###
 #Delete a list 
-DELETE  http://localhost:3000/list/5e2a186e-4bf8-40e0-85ad-580e4a83b4aa HTTP/1.1
+DELETE  http://localhost:3000/list/a5fd32e8-2f35-4747-afe8-f2fbbf63c5f9 HTTP/1.1
 
 
 ###
@@ -53,12 +53,12 @@ content-Type: application/json
 
 {
     "name": "task1",
-    "listId": "016d5085-c53d-412f-8390-1e0ade31d84f"
+    "listId": "d1d0806d-338e-4fdd-aca9-774e730a8385"
 }
 
 ###
-#Listing a list 
-GET http://localhost:3000/task/all/016d5085-c53d-412f-8390-1e0ade31d84f HTTP/1.1
+#Listing all tasks 
+GET http://localhost:3000/task/all/9f2b03cb-f760-44d6-983d-7fde9100d86b HTTP/1.1
 content-Type: application/json
 
 
@@ -74,5 +74,5 @@ content-Type: application/json
 }
 
 ###
-#Delete a list 
+#Delete a task 
 DELETE  http://localhost:3000/task/a3f2d313-2712-45e8-ab27-ded44e6eb6e5 HTTP/1.1

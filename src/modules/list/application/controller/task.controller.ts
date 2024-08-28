@@ -33,7 +33,7 @@ export class TaskController {
     return await this.taskCreateUseCase.execute(input);
   }
   @HttpCode(HttpStatus.OK)
-  @Get('all/:id')
+  @Get('all/:listId')
   async listAll(@Param() input: ListingTaskInputDto) {
     return await this.listingTaskService.execute(input);
   }

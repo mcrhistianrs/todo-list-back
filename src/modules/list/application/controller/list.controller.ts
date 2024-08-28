@@ -8,7 +8,9 @@ import {
   Param,
   Patch,
   Post,
+  Res,
 } from '@nestjs/common';
+import { Response } from 'express';
 import {
   ListAllListsInputDto,
   UpdateListInputDto,
@@ -44,9 +46,20 @@ export class ListController {
   async update(@Body() input: UpdateListInputDto) {
     return await this.updateListUseCase.execute(input);
   }
-  @HttpCode(HttpStatus.OK)
   @Delete(':id')
-  async delete(@Param('id') input: string) {
-    return await this.deleteListUseCase.execute(input);
+  async delete(@Param('id') input: string, @Res() res: Response) {
+    const result = await this.deleteListUseCase.execute(input);
+
+    if (!result) {
+      return res.status(HttpStatus.BAD_REQUEST).json({
+        success: false,
+        message: 'Failed to delete the list.',
+      });
+    }
+
+    return res.status(HttpStatus.OK).json({
+      success: true,
+      message: 'List deleted successfully.',
+    });
   }
 }

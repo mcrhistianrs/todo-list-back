@@ -7,7 +7,7 @@ interface IListDao {
   findAllByUserId(userId: string): Promise<List[]>;
   findById(id: string): Promise<List | null>;
   update(id: string, data: Partial<List>): Promise<List>;
-  delete(id: string): Promise<void>;
+  delete(id: string): Promise<boolean>;
 }
 @Injectable()
 class ListDao implements IListDao {
@@ -45,10 +45,18 @@ class ListDao implements IListDao {
     });
   }
 
-  async delete(id: string): Promise<void> {
-    await this.prismaService.list.delete({
-      where: { id },
-    });
+  async delete(id: string): Promise<boolean> {
+    try {
+      const result = await this.prismaService.list.delete({
+        where: { id },
+      });
+      if (result) {
+        return true;
+      }
+      return false;
+    } catch (error) {
+      return false;
+    }
   }
 }
 export { ListDao };
