@@ -16,6 +16,7 @@ class UserDao implements IUserDao {
         where: { email },
       });
     } catch (error) {
+      console.log(error);
       return null;
     }
   }
