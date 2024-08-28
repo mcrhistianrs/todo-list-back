@@ -20,13 +20,13 @@ content-Type: application/json
 
 {
     "name": "list1",
-    "color": "blue",
-    "user": "274c576b-8ae1-41bf-b622-a5cd31684377"
+    
+    "user": "9450f523-5985-4fb5-b8bf-dda9ed6cea22"
 }
 
 ###
 #Listing all lists
-GET http://localhost:3000/list/all/e717a789-e158-473d-8b6f-38e3ec6a462b HTTP/1.1
+GET http://localhost:3000/list/all/9450f523-5985-4fb5-b8bf-dda9ed6cea22 HTTP/1.1
 content-Type: application/json
 
 

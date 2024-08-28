@@ -35,6 +35,7 @@ class ListRepository implements ListRepositoryInterface {
 
   async create(input: CreateListInputDto): Promise<ListDomainEntity> {
     try {
+      input.color = input.color || 'bg-sky-500';
       const databaseEntity = await this.listDao.create(input);
       return ListDomainEntity.load({
         id: databaseEntity.id,
@@ -44,6 +45,7 @@ class ListRepository implements ListRepositoryInterface {
         createdAt: databaseEntity.createdAt,
       });
     } catch (error) {
+      console.log(error);
       throw new BadRequestException('It was not possible to create the list');
     }
   }
