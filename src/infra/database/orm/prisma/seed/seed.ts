@@ -10,6 +10,7 @@ async function createUser() {
     },
   });
 }
+
 async function testDatabaseConnection() {
   const result = await prisma.$queryRaw`SELECT *  FROM User  ;`;
   console.log(result);
